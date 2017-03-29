@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="">
 
 <head>
@@ -21,17 +21,17 @@
                 </thead>
             </tr>
             <?php
-$connect = mysqli_connect("localhost", "root", "", "Admin");
-$sql="SELECT * FROM Usuarios";
+$connect = mysqli_connect("localhost", "root", "", "sistemaestatal");
+$sql="SELECT * FROM registro_usuario";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_array($result)) 
      {  
         echo '  
         <tr>  
-          <td>'.$row["Nombre"].'</td>  
-          <td>'.$row["Email"].'</td>  
-          <td>'.$row["Usuario"].'</td>  
-          <td>'.$row["TipoUsuario"].'</td>
+          <td>'.$row["nombre_usuario"].'</td>  
+          <td>'.$row["correo_usuario"].'</td>  
+          <td>'.$row["usuario"].'</td>  
+          <td>'.$row["tipo_usuario"].'</td>
           <td id="centrarbtn">
           <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Borrar</button>

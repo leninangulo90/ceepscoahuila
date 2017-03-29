@@ -1,10 +1,6 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "dbsistemaestatal");  
- $query = "SELECT IdEstado,Ano,Total FROM poblacion\n"
-    . "UNION\n"
-    . "SELECT IdEstado,Ano,Total FROM pib\n"
-    . "UNION\n"
-    . "SELECT IdEstado,Ano,Total FROM dp";
+ $connect = mysqli_connect("localhost", "root", "", "sistemaestatal");  
+ $query = "SELECT * FROM datos";
  $result = mysqli_query($connect, $query);  
  ?>
 <!DOCTYPE html>
@@ -40,11 +36,11 @@
                           {  
                                echo '  
                                <tr> 
-                                    <td>Poblacion</td>
-                                    <td>'.$row["IdEstado"].'</td>  
-                                    <td>'.$row["Ano"].'</td>
-                                    <td>'.$row["Total"].'</td>
-                                    <td>INEGI</td>
+                                    <td>'.$row["codVariable"].'</td>
+                                    <td>'.$row["codiEstado"].'</td>  
+                                    <td>'.$row["ano"].'</td>
+                                    <td>'.$row["total"].'</td>
+                                    <td>'.$row["fuente"].'</td>
                                </tr>  
                                ';  
                           }  

@@ -14,24 +14,22 @@
             <tr>
                 <thead style="font-weight:bold;">
                     <td>Código de Variable</td>
-                    <td>Variable</td>
-                    <td>Unidad</td>
                     <td>Factor</td>
+                    <td>Variable</td>
                     <td>Acciones</td>
                 </thead>
             </tr>
             <?php
-$connect = mysqli_connect("localhost", "root", "", "Admin");
-$sql="SELECT * FROM Variables";
+$connect = mysqli_connect("localhost", "root", "", "sistemaestatal");
+$sql="SELECT * FROM variables";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_array($result)) 
      {  
         echo '  
         <tr>  
-          <td>'.$row["CodigoVariable"].'</td>  
-          <td>'.$row["Variable"].'</td>
-          <td>'.$row["Unidad"].'</td>
-          <td>'.$row["Factor"].'</td>
+          <td>'.$row["codigoVariables"].'</td>  
+          <td>'.$row["codFactor"].'</td>
+          <td>'.$row["variable"].'</td>
           <td id="centrarbtn">
           <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Borrar</button>

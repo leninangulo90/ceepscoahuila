@@ -40,13 +40,17 @@
                 <?php
     if(isset($_POST["guardarv"])){
     require("connect.php");
+
     $codf=$_POST["codv"];
-    $variable=$_POST["variable"];
-    $unidad=$_POST["unidad"];
     $fac=$_POST["fac"];   
-    mysql_query("INSERT INTO variables VALUES('$codv','$variable','$unidad',$fac')");
+    $variable=$_POST["variable"];
+
+    mysql_query("INSERT INTO variables VALUES('$codv','$variable','$fac')");
     echo "<script>alert('Los datos se guardaron correctamente')</script>";
     echo "<script>location.href='administration.php'</script>";   
         mysql_close($link);
     }
     ?>
+
+   
+
