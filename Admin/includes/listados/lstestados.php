@@ -19,15 +19,15 @@
                 </thead>
             </tr>
             <?php
-$connect = mysqli_connect("localhost", "root", "", "Admin");
-$sql="SELECT * FROM Estados";
+$connect = mysqli_connect("localhost", "root", "", "sistemaestatal");
+$sql="SELECT * FROM estados";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_array($result)) 
      {  
         echo '  
         <tr>  
-          <td>'.$row["CodigoEstado"].'</td>  
-          <td>'.$row["Estado"].'</td>
+          <td>'.$row["codigoEstado"].'</td>  
+          <td>'.$row["estado"].'</td>
           <td id="centrarbtn">
           <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Borrar</button>

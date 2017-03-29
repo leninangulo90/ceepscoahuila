@@ -88,9 +88,9 @@
                <label>Valor total:</label><br>
                <input type="text" class="form-control" name="total" id="total" placeholder="Valor total de la variable"><br>
                <label>Unidad:</label><br>
-               <input type="text" class="form-control" name="unidad" id="unidad" placeholder="Unidad"><br>
+               <input type="text" class="form-control" name="unidad" style="text-transform:uppercase" id="unidad" placeholder="Unidad"><br>
                <label>Fuente:</label><br>
-               <input type="text" class="form-control" name="fuente" id="fuente" placeholder="Fuente donde se consultó la información, por ejemplo (INEGI)"><br> Importar desde Excel: <input name="excel" type="file" class="form-control" /><b style="color:darkred">Nota:</b> Si va a seleccionar archivo de Excel, verifique que lleve los mismos campos que están en el formulario (Sin títulos) para evitar cualquier problema de importación. <a> Ver imágen de ejemplo</a><br><br>
+               <input type="text" class="form-control" name="fuente" style="text-transform:uppercase" id="fuente" placeholder="Fuente donde se consultó la información, por ejemplo (INEGI)"><br> Importar desde Excel: <input name="excel" type="file" class="form-control" /><b style="color:darkred">Nota:</b> Si va a seleccionar archivo de Excel, verifique que lleve los mismos campos que están en el formulario (Sin títulos) para evitar cualquier problema de importación. <a> Ver imágen de ejemplo</a><br><br>
 
                <button type="submit" class="btn btn-success" name="guardar_datos" id="guardar_datos" value="guardar_datos"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
             </form>
@@ -142,9 +142,9 @@
             <h3>Registro de Factores</h3>
             <form id="form_factores">
                 <label>Código de Factor: </label><br>
-                <input type="text" name="codigoFactor" id="codigoFactor" class="form-control"><br>
+                <input type="number" id="numero" min="0" max="10" name="codigoFactor" id="codigoFactor" class="form-control"><br>
                 <label>Nombre del Factor: </label><br>
-                <input type="text" name="factor" id="factor" class="form-control"><br>
+                <input type="text" name="factor" id="factor" style="text-transform:uppercase" class="form-control"><br>
                 <button type="submit" class="btn btn-success" name="guardar_factor" id="guardar_factor"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
             </form>
         </div>
@@ -161,7 +161,7 @@
           <label>Código del Estado:</label><br>
           <input type="text" class="form-control" name="codigoEstado" id="codigoEstado" placeholder="Código del Estado" required><br>
           <label>Estado:</label><br>
-          <input type="text" class="form-control" name="estado" id="estado" placeholder="Nombre del Estado" required><br>
+          <input type="text" class="form-control" name="estado" id="estado" style="text-transform:uppercase" placeholder="Nombre del Estado" required><br>
           <button type="submit" name="guardar_estado" id="guardar_estado" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
         </form>
       </div>
@@ -176,18 +176,18 @@
             <h3>Registro de Usuarios</h3>
             <form id="form_usuarios" >
                 <label>Nombre:</label><br>
-                <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" placeholder="Nombre Completo" required><br>
+                <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" style="text-transform:uppercase" placeholder="Nombre Completo" required><br>
                 <label>Correo Electrónico:</label><br>
-                <input type="email" class="form-control" name="correo_usuario" id="correo_usuario" placeholder="Correo Electrónico" required><br>
+                <input type="email" class="form-control" name="correo_usuario" id="correo_usuario" style="text-transform:uppercase" placeholder="Correo Electrónico" required><br>
                 <label>Usuario:</label><br>
-                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Nombre de Usuario" required><br>
+                <input type="text" class="form-control" name="usuario" id="usuario" style="text-transform:uppercase" placeholder="Nombre de Usuario" required><br>
                 <label>Contraseña:</label><br>
                 <input type="password" class="form-control" name="pass_usuario" id="pass_usuario" placeholder="Contraseña" required><br>
                 <label>Tipo de Usuario:</label><br>
-                <select class="form-control" name="tipo_usuario" id="tipo_usuario" required>
-                    <option value="Capturista">Capturista</option>
-                    <option value="Estandar">Estandar</option>
-                    <option value="Administrador">Administrador</option>
+                <select class="form-control" name="tipo_usuario" style="text-transform:uppercase" id="tipo_usuario" required>
+                    <option value="Capturista">CAPTURISTA</option>
+                    <option value="Estandar">ESTANDAR</option>
+                    <option value="Administrador">ADMINISTRADOR</option>
                 </select><br>
                 <button type="submit" name="guardar_usuario" id="guardar_usuario" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
             </form>
