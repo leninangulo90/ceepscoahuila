@@ -1,63 +1,32 @@
-<?php
-session_start();
-if(!isset($_SESSION["usuario"])){
-    header("Location: ../index.php");
-}
-?>
-<?php
-include("querys/query.php");
-?>
-<!DOCTYPE html>
-<html lang="">
 
-<head>
-<title>Administración</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    
-    <script type="text/javascript">
-        
-        $(document).ready(function(){
-            var nombre, correo, user, pass, tipo;
-            $('#form_registro').submit(function(e){
-                nombre = $("#nombre_usuario").val();
-                correo = $("#correo_usuario").val();
-                user = $("#usuario").val();
-                pass = $("#pass_usuario").val();
-                tipo = $("#tipo_usuario").val();
 
-                console.log(nombre);
-                
-                var response = $.ajax({
-                    url: 'registro_usuario.php',
-                    type: 'POST',
-                    data: {nombre_usuario:nombre, correo_usuario:correo, usuario:user, pass_usuario:pass, tipo_usuario:tipo}
-                });
+<nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                    <a class="navbar-brand" href="/ceepscoahuila/Admin/includes">CEEPS COAHUILA</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Sistema Estatal</a></li>
+                        <li><a href="#">Sistema Municipal</a></li>
+                        <li><a href="#">Sistema Grande</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> ¡Bienvenido <?php echo$_SESSION['user']; ?> 
+                        </a></li>
+                        <li><a href="disconnect.php"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-                response.done(function(data, jqXHR, textStatus, errorThrown) {
-                    console.log(data, jqXHR, textStatus, errorThrown)
-                    if (textStatus.status === 202) {
-                        alert('Registrado Correctamente');
-                    } else {
-                        alert('Intentar Otra Vez');
-                    }
-                });
-                e.preventDefault();
-            });
-        });
 
-    </script>
 
-</head>
-
-<body>
-<?php
- include("menu.php");
-?>
 
 <div class="container">
   <div class="page-header">
@@ -81,49 +50,84 @@ include("querys/query.php");
        <div class="tab-pane fade in active" id="tab1default">
           <div class="col-sm-6">
 
-             <h3>Registro de Información de variables</h3>
-               <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-                  <label>Variable:</label><br>
-                    <select class="form-control">
-                     <option>POBLACIÓN</option>
-                     <option>PEA</option>
-                    </select><br>
-                  <label>Estado:</label><br>
-                    <select class="form-control">
-                     <option>COAHUILA</option>
-                    </select><br>
-                  <label>Año:</label><br>
-                    <input type="password" class="form-control" name="password" placeholder="Año de la información" required><br>
-                  <label>Valor total:</label><br>
-                    <input type="text" class="form-control" name="total" placeholder="Valor total de la variable"><br>
-                  <label>Fuente:</label><br>
-                    <input type="text" class="form-control" name="fuente" placeholder="Fuente donde se consultó la información, por ejemplo (INEGI)"><br> Importar desde Excel: <input name="excel" type="file" class="form-control" /><b style="color:darkred">Nota:</b> Si va a seleccionar archivo de Excel, verifique que lleve los mismos campos que están en el formulario (Sin títulos) para evitar cualquier problema de importación. <a> Ver imágen de ejemplo</a><br><br>
-      
-                  <button type="submit" class="btn btn-success" name="guardar"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
-                </form>
-        </div>
+           <h3>Registro de Información de variables</h3>
+           <form id="form_datos">
+
+              <?php
+              require('connect_sistemaestatal.php');
+              $query="SELECT * FROM variables";
+              $resul = $mysql->query($query);
+              ?>
+
+              <label>Variable:</label><br>
+              <select class="form-control" name="codVariable" id="codVariable" required>
+              <?php while($row=$resul->fetch_assoc()) { ?>
+              <option value="<?php echo $row['codigoVariables']; ?>">
+               <?php echo $row['variable']; ?>
+              </option>
+              <?php } ?>
+              </select><br>
+
+               <?php
+              require('connect_sistemaestatal.php');
+              $query="SELECT * FROM estados";
+              $resul = $mysql->query($query);
+              ?>
+
+              <label>Estados:</label><br>
+              <select class="form-control" name="codiEstado" id="codiEstado" required>
+              <?php while($row=$resul->fetch_assoc()) { ?>
+              <option value="<?php echo $row['codigoEstado']; ?>">
+               <?php echo $row['estado']; ?>
+              </option>
+              <?php } ?>
+              </select>
+
+               <br><label>Año:</label><br>
+               <input type="text" class="form-control" name="ano" id="ano" placeholder="Año de la información" required><br>
+               <label>Valor total:</label><br>
+               <input type="text" class="form-control" name="total" id="total" placeholder="Valor total de la variable"><br>
+               <label>Unidad:</label><br>
+               <input type="text" class="form-control" name="unidad" id="unidad" placeholder="Unidad"><br>
+               <label>Fuente:</label><br>
+               <input type="text" class="form-control" name="fuente" id="fuente" placeholder="Fuente donde se consultó la información, por ejemplo (INEGI)"><br> Importar desde Excel: <input name="excel" type="file" class="form-control" /><b style="color:darkred">Nota:</b> Si va a seleccionar archivo de Excel, verifique que lleve los mismos campos que están en el formulario (Sin títulos) para evitar cualquier problema de importación. <a> Ver imágen de ejemplo</a><br><br>
+
+               <button type="submit" class="btn btn-success" name="guardar_datos" id="guardar_datos" value="guardar_datos"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+            </form>
+          </div>
 
         <?php
         include("listados/datosvariables.php");
         ?>
 
+<?php
+ require('connect_sistemaestatal.php');
+
+ $query="SELECT * FROM factores";
+ $resul = $mysql->query($query);
+?>
     </div>
     <div class="tab-pane fade" id="tab2default">
         <div class="col-sm-6">
             <h3>Registro de Variables</h3>
-            <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+            <form id="form_variables">
                 <label>Código de Variable: </label><br>
                 <input type="text" name="codigoVariables" id="codigoVariables" class="form-control" required><br>
                 
                 <label>Factor:</label><br>
                 <select class="form-control" name="codFactor" id="codFactor" required>
-                    <option value="demografia">DEMOGRAFIA</option>
+                    <?php while($row=$resul->fetch_assoc()) { ?>
+                      <option value="<?php echo $row['codigoFactor']; ?>">
+                       <?php echo $row['factor']; ?>
+                      </option>
+                    <?php } ?>
+                    
                 </select><br>
 
                 <label>Variable: </label><br>
                 <input type="text" name="variable" id="variable" class="form-control" required><br>
 
-                <button type="submit" class="btn btn-success" name="guardarv"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
+                <button type="submit" class="btn btn-success" name="guardar_variable" id="guardar_variable"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
             </form>
         </div>
 
@@ -136,12 +140,12 @@ include("querys/query.php");
     <div class="tab-pane fade" id="tab3default">
         <div class="col-sm-6">
             <h3>Registro de Factores</h3>
-            <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+            <form id="form_factores">
                 <label>Código de Factor: </label><br>
-                <input type="text" name="codf" class="form-control"><br>
+                <input type="text" name="codigoFactor" id="codigoFactor" class="form-control"><br>
                 <label>Nombre del Factor: </label><br>
-                <input type="text" name="factor" class="form-control"><br>
-                <button type="submit" class="btn btn-success" name="guardarf"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
+                <input type="text" name="factor" id="factor" class="form-control"><br>
+                <button type="submit" class="btn btn-success" name="guardar_factor" id="guardar_factor"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
             </form>
         </div>
 
@@ -151,26 +155,26 @@ include("querys/query.php");
 
     </div>
     <div class="tab-pane fade" id="tab4default">
-        <div class="col-sm-6">
-            <h3>Registro de Estados</h3>
-            <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-                <label>Código del Estado:</label><br>
-                <input type="text" class="form-control" name="code" placeholder="Código del Estado" required><br>
-                <label>Estado:</label><br>
-                <input type="text" class="form-control" name="estado" placeholder="Nombre del Estado" required><br>
-                <button type="submit" class="btn btn-success" name="guardare"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
-            </form>
-        </div>
+      <div class="col-sm-6">
+        <h3>Registro de Estados</h3>
+        <form id="form_estados">
+          <label>Código del Estado:</label><br>
+          <input type="text" class="form-control" name="codigoEstado" id="codigoEstado" placeholder="Código del Estado" required><br>
+          <label>Estado:</label><br>
+          <input type="text" class="form-control" name="estado" id="estado" placeholder="Nombre del Estado" required><br>
+          <button type="submit" name="guardar_estado" id="guardar_estado" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+        </form>
+      </div>
 
-        <?php
-        include("listados/lstestados.php");
-        ?>
+      <?php
+      include("listados/lstestados.php");
+      ?>
 
     </div>
     <div class="tab-pane fade" id="tab5default">
         <div class="col-sm-6">
             <h3>Registro de Usuarios</h3>
-            <form id="form_registro" >
+            <form id="form_usuarios" >
                 <label>Nombre:</label><br>
                 <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" placeholder="Nombre Completo" required><br>
                 <label>Correo Electrónico:</label><br>
@@ -200,9 +204,3 @@ include("querys/query.php");
 </div>
 </div>
 </div>
-<?php
-include("footer.php");
-?>
-</body>
-
-</html>

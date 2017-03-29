@@ -1,6 +1,7 @@
 <?php
-	$link =mysql_connect('localhost','root','');
-	if($link){
-		mysql_select_db('sistemaestatal',$link);
-	}
+	 $mysql = new mysqli('localhost', 'root', '', 'sistemaestatal');
+  if ($mysql->connect_errno) {
+    printf('error al conectar a la BD');
+    exit();
+  }
 ?>

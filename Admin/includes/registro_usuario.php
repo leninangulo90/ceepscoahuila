@@ -1,9 +1,5 @@
 <?php 
-  $mysql = new mysqli('localhost', 'root', '', 'sistemaestatal');
-  if ($mysql->connect_errno) {
-    printf('error al conectar a la BD');
-    exit();
-  }
+   include("connect_sistemaestatal.php");
 
   $nombre_usuario   = $_POST['nombre_usuario'];
   $correo_usuario = $_POST['correo_usuario'];
