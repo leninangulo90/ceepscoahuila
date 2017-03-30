@@ -34,11 +34,12 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
+         $('#bodyTable').append($('<tr/>').append($('<td/>').text(nombre)));
+         // $('#table').apennd($('</tr>').html(nombre).apennd($('</div>').html(correo).apennd($('</div>').html(user).apendd($('</div>').html(pass).apendd($('</div>').html(tipo).apendd($('</div>')))))));
          $('#form_usuarios')[0].reset();
         } else {
          alert('Intentar Otra Vez');
          $('#form_usuarios')[0].reset();
-         window.location.replace("/ceepscoahuila/Admin/includes");
         }
        });
        e.preventDefault();
@@ -172,20 +173,9 @@
         e.preventDefault();
 
       });
-      function valida(e){
-    tecla = (document.all) ? e.keyCode : e.which;
+    });
 
-    //Tecla de retroceso para borrar, siempre la permite
-    if (tecla==8){
-        return true;
-    }
-        
-    // Patron de entrada, en este caso solo acepta numeros
-    patron =/[0-9]/;
-    tecla_final = String.fromCharCode(tecla);
-    return patron.test(tecla_final);
-}
-    }); 
+  
 
     </script>
 
