@@ -34,7 +34,7 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
-         $('#bodyTable').append($('<tr/>').append($('<td/>').text(nombre)));
+         $('#bodyTable').append($('<tr/>').append($('<td/>').text(nombre)).append($('<td/>').text(correo)).append($('<td/>').text(user)).append($('<td/>').text(tipo)).append($('#centrarbtn')));
          // $('#table').apennd($('</tr>').html(nombre).apennd($('</div>').html(correo).apennd($('</div>').html(user).apendd($('</div>').html(pass).apendd($('</div>').html(tipo).apendd($('</div>')))))));
          $('#form_usuarios')[0].reset();
         } else {
@@ -61,6 +61,8 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
+         $('#table_estado').append($('<tr/>').append($('<td/>').text(codigo_estado)).append($('<td/>').text(nombre_estados)).append($('#centrarbtn')));
+          window.location.replace("/ceepscoahuila/Admin/includes");
          $('#form_estados')[0].reset();
         } else {
          alert('Intentar Otra Vez');
@@ -73,8 +75,8 @@
       var codigo_factor, nombre_factor;
       $('#form_factores').submit(function(e){
        codigo_factor = $("#codigoFactor").val();
-       nombre_factor = $("#factor").val();
-
+       nombre_factor = $("#factor").val()
+       console.log(codigo_factor)
        var response2 = $.ajax({
         url: 'registro_factores.php',
         type: 'POST',
@@ -85,6 +87,7 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
+
          $("#form_factores")[0].reset();
         } else {
          alert('Intentar Otra Vez');

@@ -37,8 +37,8 @@
               <td>'.$row["usuario"].'</td>  
               <td>'.$row["tipo_usuario"].'</td>
               <td id="centrarbtn">
-                <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
-                <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
+                <button type="button" class="btn-updt btn btn-warning"<span class="glyphicon glyphicon-pencil"></span> Editar</button>
+                <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
               </td>
             </tr>';  
         }  

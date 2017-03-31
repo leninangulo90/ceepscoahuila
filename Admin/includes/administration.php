@@ -137,7 +137,7 @@
                       <h3>Registro de Factores</h3>
                       <form id="form_factores">
                         <label>Código de Factor: </label><br>
-                        <input type="number" id="numero" min="0" max="10" name="codigoFactor" id="codigoFactor" class="form-control"><br>
+                        <input type="number" id="codigoFactor" min="0" max="10" name="codigoFactor" id="codigoFactor" class="form-control"><br>
                         <label>Nombre del Factor: </label><br>
                         <input type="text" name="factor" id="factor" style="text-transform:uppercase" class="form-control"><br>
                         <button type="submit" class="btn btn-success" name="guardar_factor" id="guardar_factor"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
