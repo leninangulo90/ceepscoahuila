@@ -61,8 +61,9 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
-         $('#table_estado').append($('<tr/>').append($('<td/>').text(codigo_estado)).append($('<td/>').text(nombre_estados)).append($('#centrarbtn')));
-          window.location.replace("/ceepscoahuila/Admin/includes");
+         $('#table_estado').append($('<tr/>').append($('<td/>').text(codigo_estado)).append($('<td/>').text(nombre_estados)).append($('#centrar_btn')));
+
+         
          $('#form_estados')[0].reset();
         } else {
          alert('Intentar Otra Vez');

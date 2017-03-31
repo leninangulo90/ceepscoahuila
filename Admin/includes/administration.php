@@ -179,7 +179,8 @@
                      <label>Contraseña:</label><br>
                      <input type="password" class="form-control" name="pass_usuario" id="pass_usuario" placeholder="Contraseña" required><br>
                      <label>Tipo de Usuario:</label><br>
-                     <select class="form-control" name="tipo_usuario" style="text-transform:uppercase" id="tipo_usuario" required>
+                     <select class="form-control" name="tipo_usuario" style="text-transform:uppercase" 
+                      id="tipo_usuario" required>
                       <option value="Capturista">CAPTURISTA</option>
                       <option value="Estandar">ESTANDAR</option>
                       <option value="Administrador">ADMINISTRADOR</option>

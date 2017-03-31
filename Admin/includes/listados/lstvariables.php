@@ -30,7 +30,7 @@ while($row = mysqli_fetch_array($result))
           <td>'.$row["codigoVariables"].'</td>  
           <td>'.$row["codFactor"].'</td>
           <td>'.$row["variable"].'</td>
-          <td id="centrarbtn">
+          <td id="centrarbtn3">
           <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
           </td>

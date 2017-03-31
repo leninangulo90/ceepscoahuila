@@ -20,7 +20,7 @@
             </tr>
             <?php
 $connect = mysqli_connect("localhost", "root", "", "sistemaestatal");
-$sql="SELECT * FROM Factores";
+$sql="SELECT * FROM factores";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_array($result)) 
      {  
@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result))
         <tr>  
           <td>'.$row["codigoFactor"].'</td>  
           <td>'.$row["factor"].'</td>
-          <td id="centrarbtn">
+          <td id="centrarbtn2">
           <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
           </td>

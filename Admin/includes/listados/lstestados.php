@@ -14,7 +14,7 @@
         $("#update_state").val(user.estado);
         // console.log(user)
       });
-      $("#update_user_modal").modal("show");
+      $("#update_state_modal").modal("show");
     });
 
     $('#updt').submit(function(e) {
@@ -70,7 +70,7 @@ $query = "SELECT * FROM estados";
         <td id="nose">'.$row['codigoEstado'].'</td>
         <td>'.$row['estado'].'</td>
         <td id="centrarbtn">
-          <button type="button" class="btn-updt btn btn-warning"<span class="glyphicon glyphicon-pencil"></span> Editar</button>
+          <button type="button" class="btn-updt btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
           <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
         </td>
       </tr>';
@@ -83,7 +83,7 @@ $query = "SELECT * FROM estados";
   echo $data;
   ?>
 
-<div class="modal fade" id="update_user_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="update_state_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <form id="updt">
       <div class="modal-content">

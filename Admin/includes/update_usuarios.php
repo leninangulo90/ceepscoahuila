@@ -1,6 +1,6 @@
 <?php
 // include Database connection file
-include("db_connection.php");
+include("listados/db_connection.php");
 
 // check request
 if(isset($_POST['id']) && isset($_POST['id']) != "")
@@ -9,7 +9,7 @@ if(isset($_POST['id']) && isset($_POST['id']) != "")
     $user_id = $_POST['id'];
 
     // Get User Details
-    $query = "SELECT codigoEstado, estado FROM estados WHERE codigoEstado ='$user_id'";
+    $query = "SELECT id_user,nombre_usuario,correo_usuario,usuario,tipo_usuario FROM registro_usuario WHERE id_user ='$user_id'";
     if (!$result = mysql_query($query)) {
         exit(mysql_error());
     }
