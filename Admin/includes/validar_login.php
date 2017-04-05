@@ -2,15 +2,15 @@
 
 $conexionBD = mysql_connect('localhost', 'root', '') or die('No se pudo establecer la conexion con la base de datos');
   //conectar a base de datos
- mysql_select_db('admin') or die('No se puede abrir la base de datos imagen');
+ mysql_select_db('sistemaestatal') or die('No se puede abrir la base de datos imagen');
 
 session_start();
 
-$username = $_POST['Usuario'];
-$password = $_POST['Password'];
+$usuario = $_POST['usuario'];
+$pass_usuario = $_POST['pass_usuario'];
 
-$query = "SELECT Usuario, Password FROM usuarios 
-			WHERE Usuario = '".$username."' AND Password ='".$password."'";
+$query = "SELECT usuario, pass_usuario FROM registro_usuario
+			WHERE usuario = '".$usuario."' AND pass_usuario ='".$pass_usuario."'";
 $q = mysql_query($query,$conexionBD);
 
 	if(mysql_num_rows($q) > 0)

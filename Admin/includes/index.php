@@ -21,10 +21,10 @@
      
 
       $("#login").submit(function(e){
-        var username = $("#Usuario").val();
-        var password = $("#Password").val();
+        var username = $("#usuario").val();
+        var password = $("#pass_usuario").val();
 
-        var data = {Usuario:username, Password:password}
+        var data = {usuario:username, pass_usuario:password}
 
         var response5 = $.ajax({ 
           type:"POST",

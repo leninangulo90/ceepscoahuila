@@ -42,13 +42,13 @@
             <div class="form-group">
             <label for="contact-email" class="col-lg-3 control-label">Username</label>
             <div class="col-lg-7">
-            <input type="text" class="form-control" id="Usuario" name="Usuario" placeholder="Nombre de Usuario" required>
+            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario" required>
             </div>
             </div>
             <div class="form-group">
             <label for="contact-password" class="col-lg-3 control-label">Password</label>
             <div class="col-lg-7">
-            <input type="password" class="form-control" id="Password" name="Password" placeholder="Contraseña" required>
+            <input type="password" class="form-control" id="pass_usuario" name="pass_usuario" placeholder="Contraseña" required>
             <div class="modal-footer">
             <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-danger" name="login_user" id="login_user">Ingresar <span class="glyphicon glyphicon-circle-arrow-right"></span></button>
