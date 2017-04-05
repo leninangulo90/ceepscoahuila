@@ -1,9 +1,58 @@
+  <?php session_start(); ?>
+<link rel="stylesheet" type="text/css" href="includes/css/style.css">
+
+<script type="text/javascript">
+ $(document).ready(function(){
+	 $("#login").submit(function(e){
+        var username = $("#Usuario").val();
+        var password = $("#Password").val();
+
+        var data = {Usuario:username, Password:password}
+
+        var response5 = $.ajax({ 
+          type:"POST",
+          url:"validar_login.php", 
+          data: data
+      });
+        response5.done(function(data, jqXHR,textStatus,errorThrown){
+          if (textStatus.status === 202) {
+            alert('Bienvenido');
+            window.location.replace("/ceepscoahuila/Admin/includes");
+
+          }
+          else {
+            alert('Usuario y/o Contraseña Invalidos');
+          }
+        });
+        e.preventDefault();
+
+      });
+    });
+</script>
+<?php
+  if(!isset($_SESSION['user'])){
+    include('login.php');
+  } else {
+    include('pagina_principal.php');
+  }
+?>
+<html>
+<head>
+
+    <meta charset= "utf-8">
+    <meta name="viewreport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+
+
+    <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
+
+
+</head>
 <body>
-<style type="text/css">
-    nav.navbar{
-        background:rgba(0,0,0,0.8);
-    }
-</style>
+
+
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -15,7 +64,7 @@
       <a class="navbar-form navbar-left" rel="home" href="#" ><img style="max-width:100px;margin-top:-5px;" src="images/favicon2.png"></a> <a class="navbar-brand" style="margin-top:20px;" href="#">Bienvenido</a>
     </div>    
 
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" style="border-top:2px solid black;"><p style="margin-top:35px;margin-bottom:20px;color:whitesmoke; font-size:15px;font-family:calibri light;">CEEPS COAHUILA &copy; 2017. Todos los derechos reservados.</p></nav>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom"></nav>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
 
@@ -26,9 +75,6 @@
             </form>
           </div>
           </nav>
-          <center>
-          <img  style="margin-top: 8%; width: 40%;" src="images/economia.png">
-          </center>
             <!--Formulario Iniciar Sesion-->
 <div class="modal fade" id="ventana1">
     <div class="modal-dialog">
@@ -64,8 +110,11 @@
     </div>
 </div>
 
- <div id="footer">
-            <div class="container">
-                <p class="text-muted credit" style="margin-top:35px;margin-bottom:20px;color:whitesmoke;border-top: 2px solid black;font-size:15px;font-family:calibri light;">CEEPS COAHUILA &copy; 2017. Todos los derechos reservados.</p>
-            </div>
-        </div>
+
+    </body>
+    <script src="bootstrap/js/jquery-3.0.0.min.js"></script>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/style_index.js"></script>
+    </html> 
+
