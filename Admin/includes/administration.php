@@ -158,6 +158,7 @@
                         <label>Estado:</label><br>
                         <input type="text" class="form-control" name="estado" id="estado" style="text-transform:uppercase" placeholder="Nombre del Estado" required><br>
                         <button type="submit" name="guardar_estado" id="guardar_estado" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+                        <br><h3>Listado de Estados</h3>
                       </form>
                     </div>
 

@@ -53,7 +53,8 @@
   <tr>
     <th>Código de Estado</th>
     <th>Estado</th>
-    <th>Update</th>
+    <th>Actualizar</th>
+    <th>Eliminar</th>
   </tr>';
 $query = "SELECT * FROM estados";
   if (!$result = mysql_query($query)) {
@@ -69,8 +70,10 @@ $query = "SELECT * FROM estados";
       <tr>
         <td id="nose">'.$row['codigoEstado'].'</td>
         <td>'.$row['estado'].'</td>
-        <td id="centrarbtn">
+        <td id="btn_updt">
           <button type="button" class="btn-updt btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
+        </td>
+        <td id="btn_delt">
           <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
         </td>
       </tr>';
@@ -88,13 +91,13 @@ $query = "SELECT * FROM estados";
     <form id="updt">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><&times;</span>></button>
           <h4 class="modal-title" id="myModalLabel">Update</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
             <label for="update_codigo_estado">Codigo de Estado</label>
-            <input type="text" id="codigo_estado" placeholder="" class="form-control"/>
+            <input type="text" readonly="readonly" id="codigo_estado" placeholder="" class="form-control"/>
           </div>
           <div class="form-group">
             <label for="update_state">Nombre del Estado</label>

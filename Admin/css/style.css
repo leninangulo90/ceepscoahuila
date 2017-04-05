@@ -17,4 +17,8 @@ h3{
     margin-top: 50px;
     padding: 20px 10px;
     background:rgba(192,192,192,0.2);
+} 
+
+.portfolio-title {
+    background: left center repeat-x;
 }

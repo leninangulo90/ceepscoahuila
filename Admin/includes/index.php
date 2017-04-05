@@ -16,8 +16,9 @@
     <script type="text/javascript">
 
      $(document).ready(function(){
-      var nombre, correo, user, pass, tipo;
+      var id_user,nombre, correo, user, pass, tipo;
       $('#form_usuarios').submit(function(e){
+       
        nombre = $("#nombre_usuario").val();
        correo = $("#correo_usuario").val();
        user = $("#usuario").val();
@@ -27,14 +28,14 @@
        var response = $.ajax({
         url: 'registro_usuario.php',
         type: 'POST',
-        data: {nombre_usuario:nombre, correo_usuario:correo, usuario:user, pass_usuario:pass, tipo_usuario:tipo}
+        data: {id_user:id_user,nombre_usuario:nombre, correo_usuario:correo, usuario:user, pass_usuario:pass, tipo_usuario:tipo}
        });
 
        response.done(function(data, jqXHR, textStatus, errorThrown) {
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
-         $('#bodyTable').append($('<tr/>').append($('<td/>').text(nombre)).append($('<td/>').text(correo)).append($('<td/>').text(user)).append($('<td/>').text(tipo)).append($('#centrarbtn')));
+         window.location.replace("/ceepscoahuila/Admin/includes")
          // $('#table').apennd($('</tr>').html(nombre).apennd($('</div>').html(correo).apennd($('</div>').html(user).apendd($('</div>').html(pass).apendd($('</div>').html(tipo).apendd($('</div>')))))));
          $('#form_usuarios')[0].reset();
         } else {
@@ -61,8 +62,8 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
-         $('#table_estado').append($('<tr/>').append($('<td/>').text(codigo_estado)).append($('<td/>').text(nombre_estados)).append($('#centrar_btn')));
-
+         $('#table_estado').append($('<tr/>').append($('<td/>').text(codigo_estado)).append($('<td/>').text(nombre_estados)).append($('#centrarbtn')));
+         window.location.replace("/ceepscoahuila/Admin/includes")
          
          $('#form_estados')[0].reset();
         } else {
@@ -88,7 +89,7 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Registrado Correctamente');
-
+          window.location.replace("/ceepscoahuila/Admin/includes")
          $("#form_factores")[0].reset();
         } else {
          alert('Intentar Otra Vez');
@@ -114,6 +115,7 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Rgistrado Correctamente');
+          window.location.replace("/ceepscoahuila/Admin/includes")
          $("#form_variables")[0].reset(); 
         } else {
          alert('Intentar Otra Vez');
@@ -144,6 +146,7 @@
         console.log(data, jqXHR, textStatus, errorThrown)
         if (textStatus.status === 202) {
          alert('Rgistrado Correctamente');
+          window.location.replace("/ceepscoahuila/Admin/includes")
          $("#form_datos")[0].reset(); 
         } else {
          alert('Intentar Otra Vez');

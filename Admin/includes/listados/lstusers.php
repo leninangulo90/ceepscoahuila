@@ -14,7 +14,6 @@
         $("#u_correo_usuario").val(user.correo_usuario);
         $("#u_usuario").val(user.usuario);
         $("#u_tipo_usuario").val(user.tipo_usuario);
-        $()
         // console.log(user)
       });
       $("#update_user_modal").modal("show");
@@ -38,7 +37,7 @@
           console.log(data,jqXHR,textStatus,errorThrown)
         if (textStatus.status === 202) {
             alert("Registro Actualizado");
-            $('#table_users').append($('<tr/>').append($('<td/>').text(id_user)))
+            window.location("/ceepscoahuila/Admin/includes")
           } else {
             alert('Es posile que este usuario ya se encuentre registrado');
           }
@@ -82,7 +81,7 @@
           <td>' .$row['correo_usuario'].'</td>
           <td>' .$row['usuario']. '</td>
           <td>' .$row['tipo_usuario']. '</td>
-          <td id="">
+          <td id="centratbtn">
             <button type = "button" class="btn_update_user btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>Editar</button>
             <button type = "button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Borrar</button>
           </td>
@@ -100,13 +99,13 @@
     <form id="updt_user">
       <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><&times;</span>></button>
         <h4 class="modal-title" id="myModalLablel">Update</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <label for="update_id">Identificador de Usuario</label>
-          <input type="text" id="u_id_user" placeholder="" class="form-control">
+          <input type="text" readonly="readonly" id="u_id_user" placeholder="" class="form-control">
         </div>
         <div class="form-group">
           <label for="update_nombre_usuario">Nombre de Usuario</label>
