@@ -6,11 +6,11 @@ $conexionBD = mysql_connect('localhost', 'root', '') or die('No se pudo establec
 
 session_start();
 
-$usuario = $_POST['usuario'];
-$pass_usuario = $_POST['pass_usuario'];
+$username = $_POST['usuario'];
+$password = $_POST['pass_usuario'];
 
 $query = "SELECT usuario, pass_usuario FROM registro_usuario
-			WHERE usuario = '".$usuario."' AND pass_usuario ='".$pass_usuario."'";
+			WHERE usuario = '".$username."' AND pass_usuario ='".$password."'";
 $q = mysql_query($query,$conexionBD);
 
 	if(mysql_num_rows($q) > 0)

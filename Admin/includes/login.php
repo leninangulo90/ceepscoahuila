@@ -36,7 +36,7 @@
             <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <center><img style="max-width:100px; -7px" src="images/favicon.png"></a>   <h3 class="modal-title">Sign Up, It's free and always will be</h3></center><hr>
+            <center><img style="max-width:100px; -7px" src="images/favicon.png"></a>   <h3 class="modal-title">Iniciar Sesión</h3></center><hr>
             <div class="modal-body">
             <div class="form">
             <div class="form-group">
@@ -50,14 +50,14 @@
             <div class="col-lg-7">
             <input type="password" class="form-control" id="pass_usuario" name="pass_usuario" placeholder="Contraseña" required>
             <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-danger" name="login_user" id="login_user">Ingresar <span class="glyphicon glyphicon-circle-arrow-right"></span></button>
             </div>
             </div>
             </div>
             </div>
             <hr>
-            <a href="#"><div class="h4"><h4>Forgot Account?</h4></div></a>
+            <a href="#"><div class="h4"><h4>Olvidaste tu cuenta?</h4></div></a>
             </div>
             </div>
         </form>
