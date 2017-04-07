@@ -59,7 +59,7 @@
     include('login.php');
   } else {
     include('pagina_principal.php');
-  }
+  } 
 ?>
 </div>
     
