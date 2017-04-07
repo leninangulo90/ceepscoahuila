@@ -15,12 +15,12 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="factores.php" style="color:whitesmoke;">CEEPS COAHUILA</a>
+                <a class="navbar-brand" href="/ceepscoahuila/Admin/includes" style="color:whitesmoke;">CEEPS COAHUILA</a>
             </div>
 
             <ul class="nav navbar-nav">
                 <li class="active"><a>Lista de variables conforme al factor</a></li>
-                <li><a href="#">Consulta de Variables</a></li>
+                <li><a href="viewfactor.php">Consulta de Variables</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

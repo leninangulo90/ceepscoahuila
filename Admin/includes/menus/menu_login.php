@@ -13,7 +13,7 @@
 
 <style>
     html {
-        background: url(images/fondo.png)fixed repeat center;
+        background: url(images/fondo3.png)fixed repeat center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -25,7 +25,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="factores.php" style="color:whitesmoke;">CENTRO DE ESTUDIOS ECONÓMICOS POLÍTICOS Y SOCIALES DE COAHUILA</a>
+                <a class="navbar-brand" href="/ceepscoahuila/Admin/includes" style="color:whitesmoke;">CENTRO DE ESTUDIOS ECONÓMICOS POLÍTICOS Y SOCIALES DE COAHUILA</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right">

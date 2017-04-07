@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="factores.php" style="color:whitesmoke;">CEEPS COAHUILA</a>
+                <a class="navbar-brand" href="/ceepscoahuila/Admin/includes" style="color:whitesmoke;">CEEPS COAHUILA</a>
             </div>
 
             <ul class="nav navbar-nav">
@@ -24,7 +24,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> ¡Bienvenido</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> ¡Bienvenido <?php echo $_SESSION["user"] ?>!</a></li>
                 <li><a href="disconnect.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
